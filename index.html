@@ -24,6 +24,29 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
         }
 
+        .lang-switch {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .lang-switch a {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #f0f4ff;
+            color: #1a73e8;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #1a73e8;
+            transition: all 0.2s;
+        }
+
+        .lang-switch a:hover {
+            background: #1a73e8;
+            color: white;
+        }
+
         .logo {
             width: 100%;
             height: auto;
@@ -144,6 +167,10 @@
 <body>
 
     <div class="container">
+
+        <div class="lang-switch">
+            <a href="index.en.html">EN</a>
+        </div>
 
         <img class="logo" src="https://raw.githubusercontent.com/paek/acecycling/main/icons/acecycling_platform.png">
 
