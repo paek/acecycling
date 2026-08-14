@@ -1,222 +1,234 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="Qbn63aeH3JzxrR-umxIvbES1CI59jbTchdFN831oST8" />
-<title>ACE Cycling</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Qbn63aeH3JzxrR-umxIvbES1CI59jbTchdFN831oST8" />
+    <title>ACE Cycling</title>
 
-<style>
-body{
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:#f5f7fa;
-    color:#333;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
 
-.container{
-    max-width:900px;
-    margin:40px auto;
-    padding:40px;
-    background:white;
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        }
 
-.logo{
-    width:680px;
-    max-width:100%;
-}
+        .logo {
+            width: 680px;
+            max-width: 100%;
+        }
 
-h1{
-    margin-top:20px;
-    font-size:36px;
-}
+        h1 {
+            margin-top: 20px;
+            font-size: 36px;
+        }
 
-h2{
-    margin-top:40px;
-    color:#1a73e8;
-}
+        h2 {
+            margin-top: 40px;
+            color: #1a73e8;
+        }
 
-ul{
-    line-height:2;
-}
+        ul {
+            line-height: 2;
+        }
 
-.button{
-    display:inline-block;
-    padding:12px 22px;
-    margin-top:15px;
-    background:#1a73e8;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-}
+        .button {
+            display: inline-block;
+            padding: 12px 22px;
+            margin-top: 15px;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
 
-.download-section{
-    margin-top:50px;
-    padding:36px;
-    background:linear-gradient(135deg, #f0f4ff 0%, #e8edf8 100%);
-    border-radius:16px;
-    text-align:center;
-}
+        .download-section {
+            margin-top: 50px;
+            padding: 36px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8edf8 100%);
+            border-radius: 16px;
+            text-align: center;
+        }
 
-.download-section h2{
-    margin-top:0;
-}
+        .download-section h2 {
+            margin-top: 0;
+        }
 
-.qr-wrapper{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:36px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
+        .qr-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 36px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-.qr-code{
-    width:200px;
-    height:200px;
-    border-radius:12px;
-    box-shadow:0 4px 20px rgba(0,0,0,.1);
-}
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+        }
 
-.store-links{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    text-align:left;
-}
+        .store-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+        }
 
-.store-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 24px;
-    border-radius:10px;
-    text-decoration:none;
-    font-size:15px;
-    font-weight:600;
-    color:white;
-    transition:transform .15s, box-shadow .15s;
-}
-.store-btn:hover{
-    transform:translateY(-2px);
-}
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            transition: transform .15s, box-shadow .15s;
+        }
 
-.store-btn.google{
-    background:linear-gradient(135deg, #34a853 0%, #1e8e3e 100%);
-    box-shadow:0 4px 12px rgba(52,168,83,.3);
-}
-.store-btn.apple{
-    background:linear-gradient(135deg, #333 0%, #111 100%);
-    box-shadow:0 4px 12px rgba(0,0,0,.25);
-}
+        .store-btn:hover {
+            transform: translateY(-2px);
+        }
 
-.store-btn svg{
-    width:22px;
-    height:22px;
-    fill:currentColor;
-}
+        .store-btn.google {
+            background: linear-gradient(135deg, #34a853 0%, #1e8e3e 100%);
+            box-shadow: 0 4px 12px rgba(52, 168, 83, .3);
+        }
 
-.qr-caption{
-    margin-top:16px;
-    font-size:13px;
-    color:#888;
-}
+        .store-btn.apple {
+            background: linear-gradient(135deg, #333 0%, #111 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+        }
 
-.footer{
-    margin-top:50px;
-    padding-top:20px;
-    border-top:1px solid #ddd;
-    color:#666;
-    font-size:14px;
-}
-</style>
+        .store-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .qr-caption {
+            margin-top: 16px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<img class="logo" src="https://raw.githubusercontent.com/paek/acecycling/main/icons/acecycling_platform.png">
+        <img class="logo" src="https://raw.githubusercontent.com/paek/acecycling/main/icons/acecycling_platform.png">
 
-<h1>ACE Cycling</h1>
+        <h1>ACE Cycling</h1>
 
-<p>
-ACE Cycling은 대한민국 사이클 대회의 다양한 정보를 쉽고 빠르게 제공하기 위해 개발된 모바일 애플리케이션입니다.
-</p>
+        <p>
+            ACE Cycling은 대한민국 사이클 대회의 다양한 정보를 쉽고 빠르게 제공하기 위해 개발된 모바일 애플리케이션입니다.
+        </p>
 
-<h2>주요 기능</h2>
 
-<ul>
-<li>🚴 사이클 대회 일정</li>
-<li>🏆 경기 결과 조회</li>
-<li>👤 선수 정보 조회</li>
-<li>📢 공지사항 확인</li>
-</ul>
+        <div class="download-section">
 
-<h2>문의</h2>
+            <h2>📱 앱 다운로드</h2>
 
-<p>
-앱 이용 중 문의사항이나 오류 제보, 기능 개선 의견은 아래 이메일로 연락해 주세요.
-</p>
+            <p>
+                QR 코드를 스캔하거나 아래 버튼을 눌러 앱을 다운로드하세요.
+            </p>
 
-<p>
-<strong>📧 contact@acegame.com</strong>
-</p>
+            <div class="qr-wrapper">
 
-<h2>개인정보처리방침</h2>
+                <div>
+                    <img class="qr-code" src="app/qr_code_app_download.png" alt="ACE Cycling 앱 다운로드 QR 코드">
+                    <p class="qr-caption">카메라로 스캔하세요</p>
+                </div>
+                <!--
+                <div class="store-links">
+                    <a class="store-btn google"
+                        href="https://play.google.com/store/apps/details?id=com.acegame.acecycling" target="_blank"
+                        rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M3.609 1.814L13.792 12 3.61 22.186a2.371 2.371 0 01-.497-1.5V3.313c0-.564.19-1.084.496-1.499zM14.852 13.06l2.906 1.677-2.209 2.209L14.852 13.06zm3.677 2.12L21.5 12l-2.971-3.18-3.295 1.901L14.852 13.06l3.677 2.12zM14.852 10.94l.698-3.886 3.295 1.901-3.677 2.12-.316-.135zm-1.06-1.06L4.55 1.117l9.242 5.33.698 3.433H13.792zM4.55 22.883l9.242-8.763-.698-3.433L4.55 22.883z" />
+                        </svg>
+                        Google Play
+                    </a>
 
-<p>
-아래 문서를 참고해 주세요.
-</p>
+                    <a class="store-btn apple" href="https://apps.apple.com/us/app/ace-cycling/id6799085855"
+                        target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                        App Store
+                    </a>
+                </div>
+            -->
+            </div>
 
-<a class="button"
-href="privacy_policy.html">
-개인정보처리방침 보기
-</a>
+        </div>
 
-<div class="download-section">
+        <h2>주요 기능</h2>
 
-<h2>📱 앱 다운로드</h2>
+        <ul>
+            <li>🚴 사이클 대회 일정</li>
+            <li>🏆 경기 결과 조회</li>
+            <li>👤 선수 정보 조회</li>
+            <li>📢 공지사항 확인</li>
+        </ul>
 
-<p>
-QR 코드를 스캔하거나 아래 버튼을 눌러 앱을 다운로드하세요.
-</p>
+        <h2>문의</h2>
 
-<div class="qr-wrapper">
+        <p>
+            앱 이용 중 문의사항이나 오류 제보, 기능 개선 의견은 아래 이메일로 연락해 주세요.
+        </p>
 
-<div>
-<img class="qr-code" src="app/qr_code_app_download.png" alt="ACE Cycling 앱 다운로드 QR 코드">
-<p class="qr-caption">카메라로 스캔하세요</p>
-</div>
+        <p>
+            <strong>📧 contact@acegame.com</strong>
+        </p>
 
-<div class="store-links">
+        <h2>개인정보처리방침</h2>
 
-<a class="store-btn google" href="https://play.google.com/store/apps/details?id=com.acegame.acecycling" target="_blank" rel="noopener">
-<svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.371 2.371 0 01-.497-1.5V3.313c0-.564.19-1.084.496-1.499zM14.852 13.06l2.906 1.677-2.209 2.209L14.852 13.06zm3.677 2.12L21.5 12l-2.971-3.18-3.295 1.901L14.852 13.06l3.677 2.12zM14.852 10.94l.698-3.886 3.295 1.901-3.677 2.12-.316-.135zm-1.06-1.06L4.55 1.117l9.242 5.33.698 3.433H13.792zM4.55 22.883l9.242-8.763-.698-3.433L4.55 22.883z"/></svg>
-Google Play
-</a>
+        <p>
+            아래 문서를 참고해 주세요.
+        </p>
 
-<a class="store-btn apple" href="https://apps.apple.com/us/app/ace-cycling/id6799085855" target="_blank" rel="noopener">
-<svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-App Store
-</a>
+        <a class="button" href="privacy_policy.html">
+            개인정보처리방침 보기
+        </a>
 
-</div>
 
-</div>
+        <div class="footer">
 
-</div>
+            © 2026 ACEGame. All Rights Reserved.
 
-<div class="footer">
+        </div>
 
-© 2026 ACEGame. All Rights Reserved.
-
-</div>
-
-</div>
+    </div>
 
 </body>
+
 </html>
