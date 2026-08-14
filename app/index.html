@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE Cycling - 앱 다운로드</title>
+<meta name="description" content="ACE Cycling 앱을 다운로드하세요. 대한민국 사이클 대회 정보를 쉽고 빠르게.">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MMG9Q7LB');</script>
+<!-- End Google Tag Manager -->
+
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container{
+    text-align: center;
+    padding: 40px 24px;
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .app-icon{
+    width: 100px;
+    height: 100px;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.35);
+    margin-bottom: 20px;
+  }
+
+  h1{
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .subtitle{
+    font-size: 15px;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .status-text{
+    font-size: 16px;
+    color: rgba(255,255,255,.85);
+    margin-bottom: 16px;
+  }
+
+  /* Spinner */
+  .spinner{
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255,255,255,.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+    margin: 0 auto 24px;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  /* Detected platform badge */
+  .platform-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,.15);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: rgba(255,255,255,.9);
+    margin-bottom: 24px;
+  }
+
+  .platform-badge svg{
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  /* CTA button */
+  .cta-btn{
+    display: inline-block;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 4px 15px rgba(102,126,234,.4);
+  }
+  .cta-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102,126,234,.55);
+  }
+
+  .fallback-links{
+    margin-top: 28px;
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+  }
+  .fallback-links a{
+    color: rgba(255,255,255,.7);
+    text-decoration: underline;
+  }
+
+  .footer{
+    margin-top: 40px;
+    font-size: 12px;
+    color: rgba(255,255,255,.3);
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMG9Q7LB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="container">
+
+  <img class="app-icon"
+       src="https://raw.githubusercontent.com/paek/acecycling/main/icons/acecycling_icon_512.png"
+       alt="ACE Cycling App Icon"
+       onerror="this.style.display='none'">
+
+  <h1>ACE Cycling</h1>
+  <p class="subtitle">대한민국 사이클 대회 정보를<br>쉽고 빠르게.</p>
+
+  <div class="spinner" id="spinner"></div>
+  <p class="status-text" id="statusText">기기를 확인하는 중...</p>
+
+  <div id="platformBadge" style="display:none"></div>
+
+  <div id="ctaArea" style="display:none"></div>
+
+  <div class="fallback-links" id="fallbackLinks" style="display:none">
+    자동으로 이동하지 않나요?<br>
+    <a id="linkAndroid" href="https://play.google.com/store/apps/details?id=com.acegame.acecycling">Google Play</a>
+    &nbsp;|&nbsp;
+    <a id="linkIos" href="https://apps.apple.com/us/app/ace-cycling/id6799085855">App Store</a>
+  </div>
+
+  <div class="footer">
+    © 2026 ACEGame. All Rights Reserved.
+  </div>
+
+</div>
+
+<script>
+(function(){
+  // ── Store URLs ──
+  var STORE = {
+    android: 'https://play.google.com/store/apps/details?id=com.acegame.acecycling',
+    ios:     'https://apps.apple.com/us/app/ace-cycling/id6799085855'
+  };
+
+  // ── Detect platform ──
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var platform = 'unknown';
+
+  if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+    platform = 'ios';
+  } else if (/android/i.test(ua)) {
+    platform = 'android';
+  } else if (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) {
+    // iPad with desktop-mode Safari
+    platform = 'ios';
+  }
+
+  // ── Push GTM dataLayer event ──
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'app_download_redirect',
+    detected_platform: platform,
+    referrer: document.referrer || '(direct)',
+    page_url: window.location.href,
+    user_agent: ua
+  });
+
+  // ── UI helpers ──
+  var spinner     = document.getElementById('spinner');
+  var statusText  = document.getElementById('statusText');
+  var badge       = document.getElementById('platformBadge');
+  var ctaArea     = document.getElementById('ctaArea');
+  var fallback    = document.getElementById('fallbackLinks');
+
+  function showDetected(label, iconSvg, storeUrl, btnLabel) {
+    spinner.style.display = 'none';
+
+    // Badge
+    badge.className = 'platform-badge';
+    badge.innerHTML = iconSvg + ' ' + label + ' 감지됨';
+    badge.style.display = 'inline-flex';
+
+    // Status
+    statusText.textContent = '스토어로 이동합니다...';
+
+    // CTA button (fallback)
+    ctaArea.innerHTML = '<a class="cta-btn" href="' + storeUrl + '">' + btnLabel + '</a>';
+    ctaArea.style.display = 'block';
+
+    // Show manual links
+    fallback.style.display = 'block';
+  }
+
+  var androidSvg = '<svg viewBox="0 0 24 24"><path d="M17.523 2.273l1.74-1.74a.5.5 0 00-.707-.707l-1.907 1.907A8.949 8.949 0 0012 .5a8.949 8.949 0 00-4.649 1.233L5.444.174a.5.5 0 00-.707.707l1.74 1.74A8.982 8.982 0 003 9.5h18a8.982 8.982 0 00-3.477-7.227zM8.5 7a1 1 0 110-2 1 1 0 010 2zm7 0a1 1 0 110-2 1 1 0 010 2zM3 11v8a2 2 0 002 2h1v3a1.5 1.5 0 003 0v-3h6v3a1.5 1.5 0 003 0v-3h1a2 2 0 002-2v-8H3zm-2.5.5a1.5 1.5 0 013 0v6a1.5 1.5 0 01-3 0v-6zm22 0a1.5 1.5 0 013 0v6a1.5 1.5 0 01-3 0v-6z"/></svg>';
+  var iosSvg     = '<svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
+
+  // ── Redirect ──
+  var REDIRECT_DELAY = 1500; // ms — gives GTM time to fire
+
+  if (platform === 'android') {
+    showDetected('Android', androidSvg, STORE.android, 'Google Play에서 다운로드');
+    setTimeout(function(){ window.location.href = STORE.android; }, REDIRECT_DELAY);
+
+  } else if (platform === 'ios') {
+    showDetected('iOS', iosSvg, STORE.ios, 'App Store에서 다운로드');
+    setTimeout(function(){ window.location.href = STORE.ios; }, REDIRECT_DELAY);
+
+  } else {
+    // Desktop or unknown — show both links
+    spinner.style.display = 'none';
+    statusText.textContent = '모바일 기기에서 접속해 주세요.';
+
+    ctaArea.innerHTML =
+      '<a class="cta-btn" href="' + STORE.android + '" style="margin-right:12px">Google Play</a>' +
+      '<a class="cta-btn" href="' + STORE.ios + '">App Store</a>';
+    ctaArea.style.display = 'block';
+
+    fallback.style.display = 'none';
+  }
+})();
+</script>
+
+</body>
+</html>
