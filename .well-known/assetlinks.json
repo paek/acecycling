@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.acegame.acecycling.debug",
+      "sha256_cert_fingerprints": [
+        "3B:A1:A3:BC:07:2B:59:F4:4F:EA:22:07:24:3E:88:4B:1A:65:94:99:4A:C8:3A:E2:2A:4D:31:49:EF:E1:81:60"
+      ]
+    }
+  }
+]

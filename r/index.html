@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACE Cycling - 대회 경기일정</title>
+<meta name="description" content="ACE Cycling 앱에서 대회 경기일정과 결과를 확인하세요.">
+
+<!-- 카카오톡·SNS 미리보기 카드. 정적 사이트라 모든 공유 링크가 같은 카드로 보이고, 대회 이름은 공유 글에 들어간다. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ACE Cycling">
+<meta property="og:title" content="ACE Cycling - 대회 경기일정 보기">
+<meta property="og:description" content="대한민국 사이클 대회 일정·출전명단·경기결과를 앱에서 바로 확인하세요.">
+<meta property="og:image" content="https://acecycling.acegame.com/icons/share_og_1024x500.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:url" content="https://acecycling.acegame.com/r/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Google Tag Manager (app/index.html과 같은 컨테이너) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MMG9Q7LB');</script>
+<!-- End Google Tag Manager -->
+
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container{
+    text-align: center;
+    padding: 40px 16px;
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .app-icon{
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.35);
+    margin-bottom: 18px;
+  }
+
+  h1{
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .target{
+    display: inline-block;
+    margin: 6px 0 14px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+    font-size: 14px;
+    color: rgba(255,255,255,.9);
+  }
+
+  .subtitle{
+    font-size: 15px;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 28px;
+    line-height: 1.55;
+    word-break: keep-all;
+  }
+
+  .cta-btn{
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(102,126,234,.4);
+  }
+
+  .hint{
+    min-height: 20px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: rgba(255,255,255,.75);
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+
+  .divider{
+    margin: 28px 0 14px;
+    font-size: 13px;
+    color: rgba(255,255,255,.55);
+  }
+
+  .stores{
+    display: flex;
+    gap: 10px;
+  }
+
+  .store-btn{
+    flex: 1;
+    padding: 12px 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.25);
+  }
+
+  .store-btn.recommended{
+    background: rgba(255,255,255,.22);
+    border-color: rgba(255,255,255,.6);
+  }
+
+  .footer{
+    margin-top: 36px;
+    font-size: 12px;
+    color: rgba(255,255,255,.35);
+  }
+
+  .footer a{ color: rgba(255,255,255,.5); }
+</style>
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMG9Q7LB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="container">
+
+  <img class="app-icon" src="../icons/acecycling_icon_256.png" alt="ACE Cycling 앱 아이콘">
+
+  <h1>ACE Cycling</h1>
+  <div class="target" id="target">대회 경기일정</div>
+  <p class="subtitle" id="subtitle">공유받은 대회의 경기일정·출전명단·결과를<br>ACE Cycling 앱에서 확인하세요.</p>
+
+  <a class="cta-btn" id="openApp" href="#">ACE Cycling 앱에서 보기</a>
+  <p class="hint" id="hint"></p>
+
+  <p class="divider">앱이 없으신가요? 무료로 설치하세요</p>
+  <div class="stores">
+    <a class="store-btn" id="storeAndroid" href="https://play.google.com/store/apps/details?id=com.acegame.acecycling">Google Play</a>
+    <a class="store-btn" id="storeIos" href="https://apps.apple.com/app/ace-cycling/id6799085855">App Store</a>
+  </div>
+
+  <div class="footer">
+    <a href="../">acecycling.acegame.com</a><br>
+    © 2026 ACEGame. All Rights Reserved.
+  </div>
+
+</div>
+
+<script>
+(function(){
+  // 공유 링크: https://acecycling.acegame.com/r/?d=track&y=2026&id=<연맹 대회 번호>
+  // 앱이 설치돼 있으면 보통 이 페이지를 거치지 않고 앱이 바로 열린다(App Links / Universal Links).
+  // 카카오톡 안 브라우저 등에서는 이 페이지가 열리므로 "앱에서 보기" 버튼이 앱 스킴(acecycling://r?…)으로 앱을 연다.
+  var STORE = {
+    android: 'https://play.google.com/store/apps/details?id=com.acegame.acecycling',
+    ios: 'https://apps.apple.com/app/ace-cycling/id6799085855'
+  };
+  var LABELS = { road: '도로(ROAD)', track: '트랙(TRACK)', bmx: 'BMX' };
+
+  var params = new URLSearchParams(window.location.search);
+  var d = (params.get('d') || '').toLowerCase();
+  var y = params.get('y') || '';
+  var id = params.get('id') || '';
+  var valid = Object.prototype.hasOwnProperty.call(LABELS, d) && /^\d{4}$/.test(y) && /^[A-Za-z0-9_-]{1,40}$/.test(id);
+
+  var ua = navigator.userAgent || '';
+  var platform = 'desktop';
+  if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) {
+    platform = 'ios';
+  } else if (/android/i.test(ua)) {
+    platform = 'android';
+  }
+  var inKakao = /KAKAOTALK/i.test(ua);
+
+  window.dataLayer = window.dataLayer || [];
+  function track(event, extra) {
+    var data = { event: event, detected_platform: platform, in_kakao: inKakao, share_discipline: d, share_year: y, share_id: id };
+    for (var k in extra || {}) data[k] = extra[k];
+    window.dataLayer.push(data);
+  }
+  track('share_link_open', { share_valid: valid, referrer: document.referrer || '(direct)' });
+
+  var openApp = document.getElementById('openApp');
+  var hint = document.getElementById('hint');
+  var target = document.getElementById('target');
+
+  if (platform === 'android') document.getElementById('storeAndroid').classList.add('recommended');
+  if (platform === 'ios') document.getElementById('storeIos').classList.add('recommended');
+
+  if (!valid) {
+    target.textContent = '링크 정보가 올바르지 않습니다';
+    document.getElementById('subtitle').innerHTML = 'ACE Cycling 앱을 설치하면<br>대회 일정·결과를 확인할 수 있습니다.';
+    openApp.style.display = 'none';
+  } else {
+    target.textContent = y + ' ' + LABELS[d] + ' 대회 경기일정';
+    var query = 'd=' + encodeURIComponent(d) + '&y=' + encodeURIComponent(y) + '&id=' + encodeURIComponent(id);
+    var schemeUrl = 'acecycling://r?' + query;
+    if (platform === 'android') {
+      // 앱이 있으면 앱이 열리고, 없으면 Play 스토어로 간다.
+      openApp.href = 'intent://r?' + query + '#Intent;scheme=acecycling;S.browser_fallback_url=' +
+        encodeURIComponent(STORE.android) + ';end';
+    } else if (platform === 'ios') {
+      openApp.href = schemeUrl;
+    } else {
+      openApp.href = schemeUrl;
+      hint.textContent = '휴대폰에서 링크를 열면 앱으로 바로 볼 수 있습니다.';
+    }
+    openApp.addEventListener('click', function(){
+      track('share_open_app_click');
+      if (platform !== 'ios') return;
+      // iPhone: 앱이 없으면 페이지가 그대로 남는다 → 잠시 뒤 App Store 설치를 안내한다.
+      var started = Date.now();
+      setTimeout(function(){
+        if (document.hidden || Date.now() - started > 3000) return;
+        hint.innerHTML = '앱이 열리지 않았다면 아래 <b>App Store</b>에서 설치한 뒤 이 링크를 다시 눌러 주세요.';
+      }, 1800);
+    });
+  }
+
+  document.getElementById('storeAndroid').addEventListener('click', function(){ track('share_store_click', { store: 'google_play' }); });
+  document.getElementById('storeIos').addEventListener('click', function(){ track('share_store_click', { store: 'app_store' }); });
+})();
+</script>
+
+</body>
+</html>

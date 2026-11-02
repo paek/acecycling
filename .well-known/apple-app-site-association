@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "HBQZW5223H.com.acegame.acecycling.debug",
+          "HBQZW5223H.com.acegame.acecycling"
+        ],
+        "components": [
+          { "/": "/r", "comment": "경기일정 공유 링크" },
+          { "/": "/r/", "comment": "경기일정 공유 링크" }
+        ]
+      }
+    ]
+  }
+}
