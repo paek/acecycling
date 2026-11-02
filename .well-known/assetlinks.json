@@ -1,11 +1,25 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.acegame.acecycling.debug",
       "sha256_cert_fingerprints": [
         "3B:A1:A3:BC:07:2B:59:F4:4F:EA:22:07:24:3E:88:4B:1A:65:94:99:4A:C8:3A:E2:2A:4D:31:49:EF:E1:81:60"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.acegame.acecycling",
+      "sha256_cert_fingerprints": [
+        "24:44:F5:BA:49:6D:ED:CB:A3:96:FB:B8:13:BF:D5:81:56:FB:D5:7A:FB:E7:4A:BF:85:8A:5F:24:E1:B3:59:A9"
       ]
     }
   }
